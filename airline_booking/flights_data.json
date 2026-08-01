@@ -3,9 +3,9 @@
   "model": "flights.airport",
   "pk": 1,
   "fields": {
-    "name": "Бориспіль",
-    "city": "Київ",
-    "country": "Україна",
+    "name": "Р‘РѕСЂРёСЃРїС–Р»СЊ",
+    "city": "РљРёС—РІ",
+    "country": "РЈРєСЂР°С—РЅР°",
     "code": "KBP"
   }
 },
@@ -13,9 +13,9 @@
   "model": "flights.airport",
   "pk": 2,
   "fields": {
-    "name": "Львів",
-    "city": "Львів",
-    "country": "Україна",
+    "name": "Р›СЊРІС–РІ",
+    "city": "Р›СЊРІС–РІ",
+    "country": "РЈРєСЂР°С—РЅР°",
     "code": "LWO"
   }
 },
@@ -23,9 +23,9 @@
   "model": "flights.airport",
   "pk": 3,
   "fields": {
-    "name": "Одеса",
-    "city": "Одеса",
-    "country": "Україна",
+    "name": "РћРґРµСЃР°",
+    "city": "РћРґРµСЃР°",
+    "country": "РЈРєСЂР°С—РЅР°",
     "code": "ODS"
   }
 },
@@ -33,9 +33,9 @@
   "model": "flights.airport",
   "pk": 4,
   "fields": {
-    "name": "Харків",
-    "city": "Харків",
-    "country": "Україна",
+    "name": "РҐР°СЂРєС–РІ",
+    "city": "РҐР°СЂРєС–РІ",
+    "country": "РЈРєСЂР°С—РЅР°",
     "code": "HRK"
   }
 },
@@ -43,9 +43,9 @@
   "model": "flights.airport",
   "pk": 5,
   "fields": {
-    "name": "Дніпро",
-    "city": "Дніпро",
-    "country": "Україна",
+    "name": "Р”РЅС–РїСЂРѕ",
+    "city": "Р”РЅС–РїСЂРѕ",
+    "country": "РЈРєСЂР°С—РЅР°",
     "code": "DNK"
   }
 },
@@ -53,9 +53,9 @@
   "model": "flights.airport",
   "pk": 6,
   "fields": {
-    "name": "Шопен",
-    "city": "Варшава",
-    "country": "Польща",
+    "name": "РЁРѕРїРµРЅ",
+    "city": "Р’Р°СЂС€Р°РІР°",
+    "country": "РџРѕР»СЊС‰Р°",
     "code": "WAW"
   }
 },
@@ -63,9 +63,9 @@
   "model": "flights.airport",
   "pk": 7,
   "fields": {
-    "name": "Тегель",
-    "city": "Берлін",
-    "country": "Німеччина",
+    "name": "РўРµРіРµР»СЊ",
+    "city": "Р‘РµСЂР»С–РЅ",
+    "country": "РќС–РјРµС‡С‡РёРЅР°",
     "code": "TXL"
   }
 },
@@ -73,9 +73,9 @@
   "model": "flights.airport",
   "pk": 8,
   "fields": {
-    "name": "Шарль де Голль",
-    "city": "Париж",
-    "country": "Франція",
+    "name": "РЁР°СЂР»СЊ РґРµ Р“РѕР»Р»СЊ",
+    "city": "РџР°СЂРёР¶",
+    "country": "Р¤СЂР°РЅС†С–СЏ",
     "code": "CDG"
   }
 },
@@ -83,9 +83,9 @@
   "model": "flights.airport",
   "pk": 9,
   "fields": {
-    "name": "Фьюмічіно",
-    "city": "Рим",
-    "country": "Італія",
+    "name": "Р¤СЊСЋРјС–С‡С–РЅРѕ",
+    "city": "Р РёРј",
+    "country": "Р†С‚Р°Р»С–СЏ",
     "code": "FCO"
   }
 },
@@ -93,9 +93,9 @@
   "model": "flights.airport",
   "pk": 10,
   "fields": {
-    "name": "Ель-Прат",
-    "city": "Барселона",
-    "country": "Іспанія",
+    "name": "Р•Р»СЊ-РџСЂР°С‚",
+    "city": "Р‘Р°СЂСЃРµР»РѕРЅР°",
+    "country": "Р†СЃРїР°РЅС–СЏ",
     "code": "BCN"
   }
 },
@@ -103,9 +103,9 @@
   "model": "flights.airport",
   "pk": 11,
   "fields": {
-    "name": "Ататюрк",
-    "city": "Стамбул",
-    "country": "Туреччина",
+    "name": "РђС‚Р°С‚СЋСЂРє",
+    "city": "РЎС‚Р°РјР±СѓР»",
+    "country": "РўСѓСЂРµС‡С‡РёРЅР°",
     "code": "IST"
   }
 },
@@ -113,9 +113,9 @@
   "model": "flights.airport",
   "pk": 12,
   "fields": {
-    "name": "Швехат",
-    "city": "Відень",
-    "country": "Австрія",
+    "name": "РЁРІРµС…Р°С‚",
+    "city": "Р’С–РґРµРЅСЊ",
+    "country": "РђРІСЃС‚СЂС–СЏ",
     "code": "VIE"
   }
 },
@@ -123,9 +123,9 @@
   "model": "flights.airport",
   "pk": 13,
   "fields": {
-    "name": "Вацлав Гавел",
-    "city": "Прага",
-    "country": "Чехія",
+    "name": "Р’Р°С†Р»Р°РІ Р“Р°РІРµР»",
+    "city": "РџСЂР°РіР°",
+    "country": "Р§РµС…С–СЏ",
     "code": "PRG"
   }
 },
@@ -133,9 +133,9 @@
   "model": "flights.airport",
   "pk": 14,
   "fields": {
-    "name": "Хітроу",
-    "city": "Лондон",
-    "country": "Великобританія",
+    "name": "РҐС–С‚СЂРѕСѓ",
+    "city": "Р›РѕРЅРґРѕРЅ",
+    "country": "Р’РµР»РёРєРѕР±СЂРёС‚Р°РЅС–СЏ",
     "code": "LHR"
   }
 },
@@ -143,9 +143,9 @@
   "model": "flights.airport",
   "pk": 15,
   "fields": {
-    "name": "Схіпгол",
-    "city": "Амстердам",
-    "country": "Нідерланди",
+    "name": "РЎС…С–РїРіРѕР»",
+    "city": "РђРјСЃС‚РµСЂРґР°Рј",
+    "country": "РќС–РґРµСЂР»Р°РЅРґРё",
     "code": "AMS"
   }
 },
@@ -88354,7 +88354,7 @@
   "pk": 1,
   "fields": {
     "user": null,
-    "full_name": "Петро Олексійович",
+    "full_name": "РџРµС‚СЂРѕ РћР»РµРєСЃС–Р№РѕРІРёС‡",
     "email": "shelehgleb@gmail.com",
     "flight": 6931,
     "seats": 2,
@@ -88378,7 +88378,7 @@
   "pk": 3,
   "fields": {
     "user": null,
-    "full_name": "Гліб Шелег",
+    "full_name": "Р“Р»С–Р± РЁРµР»РµРі",
     "email": "shelehgleb@gmail.com",
     "flight": 6841,
     "seats": 3,
@@ -88390,7 +88390,7 @@
   "pk": 4,
   "fields": {
     "user": 1,
-    "full_name": "Гліб Шелег",
+    "full_name": "Р“Р»С–Р± РЁРµР»РµРі",
     "email": "shelehgleb@gmail.com",
     "flight": 6841,
     "seats": 5,
@@ -88414,7 +88414,7 @@
   "pk": 8,
   "fields": {
     "user": 1,
-    "full_name": "Борис Пупкін",
+    "full_name": "Р‘РѕСЂРёСЃ РџСѓРїРєС–РЅ",
     "email": "shelehgleb@gmail.com",
     "flight": 6932,
     "seats": 5,
@@ -88426,7 +88426,7 @@
   "pk": 9,
   "fields": {
     "user": 2,
-    "full_name": "йцу",
+    "full_name": "Р№С†Сѓ",
     "email": "shelehgleb@gmail.com",
     "flight": 7382,
     "seats": 4,
@@ -88438,7 +88438,7 @@
   "pk": 10,
   "fields": {
     "user": 2,
-    "full_name": "вйц4у",
+    "full_name": "РІР№С†4Сѓ",
     "email": "shelehgleb@gmail.com",
     "flight": 7382,
     "seats": 8,
@@ -88450,7 +88450,7 @@
   "pk": 11,
   "fields": {
     "user": 2,
-    "full_name": "йвуц",
+    "full_name": "Р№РІСѓС†",
     "email": "shelehgleb@gmail.com",
     "flight": 7382,
     "seats": 7,
@@ -88462,7 +88462,7 @@
   "pk": 13,
   "fields": {
     "user": 2,
-    "full_name": "Гліб Шелег",
+    "full_name": "Р“Р»С–Р± РЁРµР»РµРі",
     "email": "shelehgleb@gmail.com",
     "flight": 7712,
     "seats": 6,
