@@ -1,0 +1,65 @@
+/* ==========================================================================
+   confirmation.css — бронювання підтверджено
+   ========================================================================== */
+
+   h1.h3.mb-4 {
+    color: var(--success-500);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(31, 181, 121, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: linear-gradient(135deg, var(--success-500), #24d18f);
+  }
+  
+  .card h2.h5 {
+    font-weight: 800;
+    color: var(--sky-700);
+    margin-bottom: 1.5rem !important;
+  }
+  
+  dl.row dt {
+    color: var(--ink-500);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+  
+  dl.row dd {
+    font-weight: 600;
+    color: var(--ink-900);
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px dashed var(--ink-100);
+  }
+  
+  dl.row dt:last-of-type,
+  dl.row dd:last-of-type {
+    border-bottom: none;
+  }
+  
+  dl.row dd strong {
+    color: var(--sky-700);
+    font-size: 1.1rem;
+  }
+  
+  a.btn.btn-primary.mt-4 {
+    box-shadow: var(--shadow-md);
+  }

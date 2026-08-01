@@ -1,0 +1,63 @@
+{% extends "flights/base.html" %}
+{% load static %}
+{% block extra_css %}
++ <link rel="stylesheet" href="{% static 'css/cancel_booking.css' %}">
+{% endblock %}
+
+{% block title %}Скасування бронювання — Авіаквитки{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h1 class="h4 mb-3">Скасувати бронювання?</h1>
+
+                <div class="confirmation-card mb-4">
+                    <div class="row-line">
+                        <span>Рейс</span>
+                        <span>{{ booking.flight.airline }}</span>
+                    </div>
+                    <div class="row-line">
+                        <span>Маршрут</span>
+                        <span>
+                            {{ booking.flight.departure_airport.code }} →
+                            {{ booking.flight.arrival_airport.code }}
+                        </span>
+                    </div>
+                    <div class="row-line">
+                        <span>Дата вильоту</span>
+                        <span>{{ booking.flight.departure_time|date:"d.m.Y H:i" }}</span>
+                    </div>
+                    <div class="row-line">
+                        <span>Пасажир</span>
+                        <span>{{ booking.full_name }}</span>
+                    </div>
+                    <div class="row-line">
+                        <span>Кількість місць</span>
+                        <span>{{ booking.seats }}</span>
+                    </div>
+                    <div class="row-line">
+                        <span>Сума</span>
+                        <span>{{ booking.total_price }} грн</span>
+                    </div>
+                </div>
+
+                <p class="text-muted small">
+                    Цю дію не можна скасувати. Місця повернуться у вільний продаж.
+                </p>
+
+                <form method="post" class="d-flex gap-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger flex-fill">
+                        Так, скасувати
+                    </button>
+                    <a href="{% url 'flights:profile' %}" class="btn btn-outline-secondary flex-fill">
+                        Ні, залишити
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

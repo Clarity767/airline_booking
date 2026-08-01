@@ -1,0 +1,130 @@
+{% extends "flights/base.html" %}
+{% load static %}
+{% block title %}Список рейсів — Авіаквитки{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/flight_list.css' %}">
+{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">Список рейсів</h1>
+
+<form method="get" class="row g-2 align-items-end mb-4">
+    <div class="col-md-3">
+        <label class="form-label">Звідки</label>
+        {{ form.from_city }}
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Куди</label>
+        {{ form.to_city }}
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Дата</label>
+        {{ form.date }}
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Авіакомпанія</label>
+        <select name="airline" class="form-select">
+            <option value="">Всі</option>
+            {% for airline in airlines %}
+                <option value="{{ airline }}" {% if airline == current_airline %}selected{% endif %}>
+                    {{ airline }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Застосувати</button>
+    </div>
+</form>
+
+<div class="mb-3">
+    <span class="me-2">Сортувати за ціною:</span>
+    <a class="btn btn-sm btn-outline-secondary {% if current_sort == 'price' %}active{% endif %}"
+       href="?{% if request.GET.urlencode %}{{ request.GET.urlencode }}&{% endif %}sort=price">
+        зростання ↑
+    </a>
+    <a class="btn btn-sm btn-outline-secondary {% if current_sort == '-price' %}active{% endif %}"
+       href="?{% if request.GET.urlencode %}{{ request.GET.urlencode }}&{% endif %}sort=-price">
+        спадання ↓
+    </a>
+</div>
+
+{% if flights %}
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Авіакомпанія</th>
+                <th>Маршрут</th>
+                <th>Дата</th>
+                <th>Ціна</th>
+                <th>Вільні місця</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in flights %}
+            <tr>
+                <td>{{ flight.airline }}</td>
+                <td>{{ flight.departure_airport.code }} → {{ flight.arrival_airport.code }}</td>
+                <td>{{ flight.departure_time|date:"d.m.Y H:i" }}</td>
+                <td>{{ flight.price }} грн</td>
+                <td>
+                    {% if flight.is_available %}
+                        <span class="badge bg-success">{{ flight.available_seats }}</span>
+                    {% else %}
+                        <span class="badge bg-secondary">немає місць</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'flights:flight_detail' flight.pk %}" class="btn btn-sm btn-outline-primary">
+                        Детальніше
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if page_obj.has_other_pages %}
+<nav aria-label="Пагінація рейсів">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?{% if request.GET.urlencode %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">«</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">«</span>
+            </li>
+        {% endif %}
+
+        {% for num in elided_page_range %}
+            {% if num == page_obj.paginator.ELLIPSIS %}
+                <li class="page-item disabled">
+                    <span class="page-link">…</span>
+                </li>
+            {% else %}
+                <li class="page-item {% if num == page_obj.number %}active{% endif %}">
+                    <a class="page-link" href="?{% if request.GET.urlencode %}{{ request.GET.urlencode }}&{% endif %}page={{ num }}">{{ num }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?{% if request.GET.urlencode %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">»</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">»</span>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% else %}
+<div class="alert alert-info">За вашим запитом рейсів не знайдено.</div>
+{% endif %}
+{% endblock %}

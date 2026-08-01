@@ -1,0 +1,70 @@
+/* ==========================================================================
+   flight_detail.css — деталі рейсу та форма бронювання
+   ========================================================================== */
+
+   .row .col-md-7 .card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .row .col-md-7 .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: var(--gradient-brand);
+  }
+  
+  .row .col-md-7 h1.h4 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .table.table-borderless th {
+    width: 40%;
+    color: var(--ink-500);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.7rem 0;
+  }
+  
+  .table.table-borderless td {
+    font-weight: 600;
+    color: var(--ink-900);
+    padding: 0.7rem 0;
+  }
+  
+  .col-md-7 > a.text-decoration-none {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--sky-600);
+  }
+  
+  .col-md-7 > a.text-decoration-none:hover {
+    color: var(--accent-600);
+  }
+  
+  .col-md-5 .card {
+    border-radius: var(--radius-lg);
+    background: var(--surface-0);
+    position: sticky;
+    top: 90px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(43, 61, 143, 0.08);
+  }
+  
+  .col-md-5 h2.h5 {
+    font-weight: 800;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  .col-md-5 .btn-success {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem;
+  }

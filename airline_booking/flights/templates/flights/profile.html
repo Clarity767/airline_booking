@@ -1,0 +1,105 @@
+{% extends "flights/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+{% block title %}Особистий кабінет — Авіаквитки{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Особистий кабінет</h1>
+    <div>
+        <a href="{% url 'flights:profile_edit' %}" class="btn btn-outline-secondary btn-sm">Редагувати профіль</a>
+        <a href="{% url 'flights:change_password' %}" class="btn btn-outline-secondary btn-sm">Змінити пароль</a>
+    </div>
+</div>
+
+<div class="d-flex align-items-center mb-4">
+    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3"
+         style="width: 56px; height: 56px; font-size: 1.25rem;">
+        {{ initials }}
+    </div>
+    <div>
+        <div class="fw-bold">{{ user.first_name }} {{ user.last_name }}</div>
+        <div class="text-muted">{{ user.username }} · {{ user.email }}</div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-muted small">Кількість бронювань</div>
+                <div class="h4 mb-0">{{ total_bookings }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-muted small">Витрачено всього</div>
+                <div class="h4 mb-0">{{ total_spent }} грн</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-muted small">Найближчий рейс</div>
+                {% if nearest_booking %}
+                    <div class="fw-semibold">
+                        {{ nearest_booking.flight.departure_airport.code }} → {{ nearest_booking.flight.arrival_airport.code }}
+                    </div>
+                    <div class="text-muted small">
+                        {{ nearest_booking.flight.departure_time|date:"d.m.Y H:i" }}
+                    </div>
+                {% else %}
+                    <div class="text-muted">Немає запланованих рейсів</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="h5 mt-4 mb-3">Мої бронювання</h2>
+
+{% if bookings %}
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Рейс</th>
+                <th>Маршрут</th>
+                <th>Дата вильоту</th>
+                <th>Місць</th>
+                <th>Сума</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr {% if booking == nearest_booking %}class="table-warning"{% endif %}>
+                <td>{{ booking.flight.airline }}</td>
+                <td>{{ booking.flight.departure_airport.code }} → {{ booking.flight.arrival_airport.code }}</td>
+                <td>{{ booking.flight.departure_time|date:"d.m.Y H:i" }}</td>
+                <td>{{ booking.seats }}</td>
+                <td>{{ booking.total_price }} грн</td>
+                <td>
+                    {% if booking.flight.departure_time > now %}
+                        <a href="{% url 'flights:cancel_booking' booking.pk %}"
+                           class="btn btn-sm btn-outline-danger">
+                            Скасувати
+                        </a>
+                    {% else %}
+                        <span class="badge bg-secondary">рейс минув</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">У вас поки немає бронювань.</div>
+{% endif %}
+{% endblock %}

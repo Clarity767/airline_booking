@@ -1,0 +1,53 @@
+/* ==========================================================================
+   home.css — пошук рейсів (головна)
+   ========================================================================== */
+
+   .row.justify-content-center {
+    padding-top: 1.5rem;
+  }
+  
+  .row.justify-content-center .card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .row.justify-content-center .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 6px;
+    background: var(--gradient-brand);
+  }
+  
+  .row.justify-content-center .card-body {
+    padding: 2.5rem;
+  }
+  
+  .row.justify-content-center h1.text-center {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .row.justify-content-center h1.text-center::after {
+    content: "✈";
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+  
+  .text-center.mt-3 a {
+    font-weight: 700;
+    color: var(--sky-600);
+  }
+  
+  .text-center.mt-3 a:hover {
+    color: var(--accent-600);
+  }
+  
+  @media (min-width: 768px) {
+    .row.justify-content-center .col-md-8 {
+      max-width: 720px;
+    }
+  }

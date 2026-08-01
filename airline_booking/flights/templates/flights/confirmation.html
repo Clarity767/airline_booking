@@ -1,0 +1,50 @@
+{% extends "flights/base.html" %}
+{% load static %}
+{% block title %}Бронювання підтверджено — Авіаквитки{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/confirmation.css' %}">
+{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">Бронювання підтверджено ✓</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h2 class="h5 mb-3">{{ booking.flight }}</h2>
+
+        <dl class="row mb-0">
+            <dt class="col-sm-4">Маршрут</dt>
+            <dd class="col-sm-8">
+                {{ booking.flight.departure_airport.city }} ({{ booking.flight.departure_airport.code }})
+                →
+                {{ booking.flight.arrival_airport.city }} ({{ booking.flight.arrival_airport.code }})
+            </dd>
+
+            <dt class="col-sm-4">Час вильоту</dt>
+            <dd class="col-sm-8">{{ booking.flight.departure_time|date:"d.m.Y H:i" }}</dd>
+
+            <dt class="col-sm-4">Час прильоту</dt>
+            <dd class="col-sm-8">{{ booking.flight.arrival_time|date:"d.m.Y H:i" }}</dd>
+
+            <dt class="col-sm-4">Авіакомпанія</dt>
+            <dd class="col-sm-8">{{ booking.flight.airline }}</dd>
+
+            <dt class="col-sm-4">Пасажир</dt>
+            <dd class="col-sm-8">{{ booking.full_name }}</dd>
+
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">{{ booking.email }}</dd>
+
+            <dt class="col-sm-4">Кількість місць</dt>
+            <dd class="col-sm-8">{{ booking.seats }}</dd>
+
+            <dt class="col-sm-4">Загальна сума</dt>
+            <dd class="col-sm-8"><strong>{{ booking.total_price }} грн</strong></dd>
+
+            <dt class="col-sm-4">Дата бронювання</dt>
+            <dd class="col-sm-8">{{ booking.created_at|date:"d.m.Y H:i" }}</dd>
+        </dl>
+    </div>
+</div>
+
+<a href="{% url 'flights:flight_list' %}" class="btn btn-primary mt-4">До списку рейсів</a>
+{% endblock %}

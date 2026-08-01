@@ -1,0 +1,107 @@
+{% extends "flights/base.html" %}
+{% load static %}
+{% block title %}{{ flight }} — Авіаквитки{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/flight_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-7">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h1 class="h4 mb-3">{{ flight.airline }}</h1>
+                <table class="table table-borderless mb-0">
+                    <tr>
+                        <th>Маршрут</th>
+                        <td>
+                            {{ flight.departure_airport.name }} ({{ flight.departure_airport.code }})
+                            → {{ flight.arrival_airport.name }} ({{ flight.arrival_airport.code }})
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Вильот</th>
+                        <td>{{ flight.departure_time|date:"d.m.Y H:i" }}</td>
+                    </tr>
+                    <tr>
+                        <th>Приліт</th>
+                        <td>{{ flight.arrival_time|date:"d.m.Y H:i" }}</td>
+                    </tr>
+                    <tr>
+                        <th>Літак</th>
+                        <td>{{ flight.aircraft|default:"—" }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ціна за квиток</th>
+                        <td>{{ flight.price }} грн</td>
+                    </tr>
+                    <tr>
+                        <th>Вільні місця</th>
+                        <td>
+                            {% if flight.is_available %}
+                            <span class="badge bg-success">{{ flight.available_seats }}</span>
+                            {% else %}
+                            <span class="badge bg-secondary">немає місць</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a href="{% url 'flights:flight_list' %}" class="text-decoration-none">← Назад до списку рейсів</a>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h5 mb-3">Бронювання квитків</h2>
+
+                {% if flight.is_available %}
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="{{ form.full_name.id_for_label }}" class="form-label">
+                            {{ form.full_name.label }}
+                        </label>
+                        {{ form.full_name }}
+                        {% if form.full_name.errors %}
+                        <div class="text-danger small">{{ form.full_name.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">
+                            {{ form.email.label }}
+                        </label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                        <div class="text-danger small">{{ form.email.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.seats.id_for_label }}" class="form-label">
+                            {{ form.seats.label }}
+                        </label>
+                        {{ form.seats }}
+                        {% if form.seats.errors %}
+                        <div class="text-danger small">{{ form.seats.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">Забронювати</button>
+                    </div>
+                </form>
+                {% else %}
+                <div class="alert alert-secondary mb-0">
+                    На цей рейс більше немає вільних місць.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

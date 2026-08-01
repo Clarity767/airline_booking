@@ -1,0 +1,82 @@
+/* ==========================================================================
+   auth.css — вхід, реєстрація, профіль, зміна/редагування
+   ========================================================================== */
+
+   .container > form.col-md-4,
+   .container > h1 + form.col-md-4 {
+     background: var(--surface-0);
+     border: 1px solid var(--ink-100);
+     border-radius: var(--radius-lg);
+     padding: 2rem 2.25rem;
+     box-shadow: var(--shadow-md);
+   }
+   
+   .mx-auto[style*="max-width: 480px"] form {
+     background: var(--surface-0);
+     border: 1px solid var(--ink-100);
+     border-radius: var(--radius-lg);
+     padding: 2rem 2.25rem;
+     box-shadow: var(--shadow-md);
+   }
+   
+   .mx-auto[style*="max-width: 480px"] h1,
+   .container > h1.h3 {
+     position: relative;
+     padding-bottom: 0.75rem;
+   }
+   
+   .container > h1.h3::after,
+   .mx-auto[style*="max-width: 480px"] h1::after {
+     content: "";
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     width: 46px;
+     height: 4px;
+     border-radius: var(--radius-pill);
+     background: var(--gradient-accent);
+   }
+   
+   /* Личный кабинет: аватар и статистика */
+   
+   .rounded-circle.bg-primary {
+     background: var(--gradient-brand) !important;
+     box-shadow: var(--shadow-md);
+     font-weight: 800;
+     font-family: 'Sora', sans-serif;
+   }
+   
+   .card h-100,
+   .row.g-3.mb-4 .card {
+     border-radius: var(--radius-md);
+     background: var(--surface-0);
+     transition: transform var(--transition-base), box-shadow var(--transition-base);
+   }
+   
+   .row.g-3.mb-4 .card:hover {
+     transform: translateY(-3px);
+     box-shadow: var(--shadow-lg);
+   }
+   
+   .row.g-3.mb-4 .text-muted.small {
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+     font-size: 0.72rem;
+     font-weight: 700;
+     color: var(--ink-500) !important;
+   }
+   
+   .row.g-3.mb-4 .h4 {
+     font-family: 'Sora', sans-serif;
+     font-weight: 800;
+     color: var(--sky-700);
+   }
+   
+   tr.table-warning {
+     --bs-table-bg: var(--accent-100) !important;
+   }
+   
+   /* Header row with edit/change-password buttons */
+   .d-flex.justify-content-between.align-items-center.mb-4 h1 {
+     margin-bottom: 0;
+   }
